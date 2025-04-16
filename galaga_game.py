@@ -59,10 +59,10 @@ def update():
         if Galaga.x>1180:
             Galaga.x=1180
     if keyboard.space:
-        nbullet = Actor("bullet")
-        nbullet.x = Galaga.x
-        nbullet.y = Galaga.y
-        bullets.append(nbullet)
+        nbul = Actor("bullet")
+        nbul.x = Galaga.x
+        nbul.y = Galaga.y
+        bullets.append(nbul)
 
     for bul in bullets():
         bul.y -= 10
