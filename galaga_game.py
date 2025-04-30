@@ -1,6 +1,7 @@
 import pgzrun
 
 
+
 HEIGHT= 700
 WIDTH = 1200
 
@@ -21,6 +22,14 @@ Bullet=Actor("bullet")
 Bullet.x=Galaga.x
 Bullet.y=Galaga.y
 
+game_over= False
+
+def time_up():
+    global game_over
+    game_over=True
+    screen.fill("red")
+    screen.draw.text(("Time is up"),(600,350))
+
 
 
 for i in range(5):
@@ -39,6 +48,7 @@ Points=0
 
 
 def draw():
+
     screen.fill("light blue")
     Galaga.draw()
     for b in bugs:
@@ -49,6 +59,9 @@ def draw():
     screen.draw.text(str(Points),(580,480))
     if len(bugs)==0:
         screen.draw.text("Gameover",(600,350))
+
+    if game_over:
+        time_up()
 
    
         
@@ -101,7 +114,7 @@ def update():
             bullets.remove(i)
             
         
-
+clock.schedule(time_up,10.00)
 
 
     
